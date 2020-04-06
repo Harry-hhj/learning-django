@@ -1,0 +1,11 @@
+{% extends 'base.html' %}  {# 必须放在第一行 #}
+{#{% load static %}#}
+
+{% block content %}
+    <p>{{ block.super }}</p>
+    <p>这是首页的代码。</p>
+    <img src="{% static 'front/logo.jpg' %}" alt="">
+    <img src="{% static 'cms/logo.jpg' %}" alt="">
+{% endblock %}
+
+我是block外面的代码

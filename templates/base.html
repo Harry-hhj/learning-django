@@ -1,0 +1,42 @@
+{#{% load static %}#}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>{% block title %}first_project1{% endblock %}</title>
+    <style>
+        .nav{
+            overflow: hidden;
+        }
+        .nav li{
+            float: left;
+            list-style: none;
+            margin: 0 20px;
+        }
+    </style>
+    <link rel="stylesheet" href="{% static 'index.css' %}">
+</head>
+<body>
+<header>
+    <ul class="nav">
+        <li><a href="{% url 'front:index' %}">首页</a></li>
+        <li><a href="{% url 'book:index' %}">读书</a></li>
+        <li><a href="{% url 'movie:index' %}">电影</a></li>
+        <li><a href="{% url 'city:index' %}">同城</a></li>
+{#          <li><a href="{% url 'book:detail' 1 %}">最火的一篇文章</a></li>#}
+        <li><a href="{% url 'book:detail' book_id=1 %}">最火的一篇文章</a></li>
+        <li><a href="{% url 'front:login'%}?next=/">登陆</a></li>
+    </ul>
+</header>
+<p>---------------分隔符---------------</p>
+<div class="content">
+    {% block content %}
+        我是父模版中content的代码。
+    {% endblock %}
+</div>
+<p>---------------分隔符---------------</p>
+<footer>
+    这是footer部分
+</footer>
+</body>
+</html>

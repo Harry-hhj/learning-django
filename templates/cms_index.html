@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>后台管理</title>
+    <style>
+        body{
+            background: darkseagreen;
+        }
+    </style>
+</head>
+<body>
+    <p>---------------分隔符---------------</p>
+    {% if '鲁班一号' in heros %}
+        <p>鲁班一号正在待命</p>
+    {% else %}
+        <p>鲁班一号正在睡觉</p>
+    {% endif %}
+    <!--if语句-->
+    <p>---------------分隔符---------------</p>
+    <ul>
+        {% for book in book_list %}
+            <li>{{ book }}</li>
+        {% endfor %}
+    </ul>
+    <p>---------------分隔符---------------</p>
+    <ul>
+        {% for book in book_list reversed %}
+            <li>{{ book }}</li>
+        {% endfor %}
+    </ul>
+    <p>---------------分隔符---------------</p>
+    <ul>
+        {% for key, value in person.items %}
+            <p>{{ key }}: {{ value }}</p>
+        {% endfor %}
+    </ul>
+    <p>---------------分隔符---------------</p>
+    <table>
+        <thead>
+            <tr>
+                <td>序号</td>
+                <td>书名</td>
+                <td>作者</td>
+                <td>价格</td>
+            </tr>
+        </thead>
+        <tbody>
+            {% for book in books %}
+                {% if forloop.first %}
+                    <tr style="background: red;">
+                {% elif forloop.last %}
+                    <tr style="background: pink;">
+                {% else %}
+                    <tr style="background: greenyellow;">
+                {% endif %}
+                    <td>{{ forloop.counter }}</td> {# 当前遍历次数，从1开始 #}
+                    <td>{{ book.name }}</td>
+                    <td>{{ book.author }}</td>
+                    <td>{{ book.price }}</td>
+                </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+    <p>---------------分隔符---------------</p>
+    <ul>
+        {% for comment in comments %}
+            <li>{{ comment }}</li>
+        {% empty %}
+            <li>这篇文章没有评论。</li>
+        {% endfor %}
+    </ul>
+    <!--for...in...语句-->
+    <p>---------------分隔符---------------</p>
+    {% with book1=book_list.1%}
+        <p>{{book1}}</p>
+    {% endwith %}
+    {% with book_list.0 as book1%}
+        <p>{{book1}}</p>
+    {% endwith %}
+    <!--with语句-->
+    <p>---------------分隔符---------------</p>
+</body>
+</html>

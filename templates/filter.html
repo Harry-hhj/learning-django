@@ -1,0 +1,160 @@
+{% load my_filter %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>filter test</title>
+</head>
+<body>
+    <p>
+        add demo:
+        <br>
+        {% verbatim %}
+        {{ '1'|add:'2' }}:
+        {% endverbatim %}
+        {{ '1'|add:'2' }}
+    </p>
+    <p>
+        cut demo:
+        <br>
+        {% verbatim %}
+        {{ 'hello world'|cut:' '}}:
+        {% endverbatim %}
+        {{ 'hello world'|cut:' '}}
+    </p>
+    <p>
+        date demo:
+        <br>
+        {{ today|date:"Y/m/d h:i:s" }}
+        <br>
+        {{ today|date:"Y-m-d" }}
+        <br>
+        {{ today|date:"d/m/Y" }}
+    </p>
+    <p>
+        default demo:
+        <br>
+        {% verbatim %}
+        {{ value|default:"我是默认值" }}:
+        {% endverbatim %}
+        {{ value|default:"我是默认值" }}
+    </p>
+    <p>
+        default _if_none:
+        <br>
+        {% verbatim %}
+        {{ value|default_if_none: "我是默认值"}}:
+        {% endverbatim %}
+        {{ value|default_if_none:"我是默认值"}}
+    </p>
+    <p>
+        first demo:
+        <br>
+        {% verbatim %}
+        {{ list|first }}:
+        {% endverbatim %}
+        {{ list|first }}
+    </p>
+    <p>
+        floatformat:
+        <br>
+        {% verbatim %}
+        {{ 0.888888|floatformat }}
+        {% endverbatim %}
+        {{ 0.888888|floatformat }}
+        <br>
+        {% verbatim %}
+        {{ 0.888888|floatformat:3 }}
+        {% endverbatim %}
+        {{ 0.888888|floatformat:3 }}
+    </p>
+    <p>
+        join demo:
+        <br>
+        {% verbatim %}
+        {{ list|join:'/' }}:
+        {% endverbatim %}
+        {{ list|join:'/' }}
+    </p>
+    <p>
+        length demo:
+        <br>
+        {% verbatim %}
+        {{ list|length }}:
+        {% endverbatim%}
+        {{ list|length }}
+    </p>
+    <p>
+        lower demo:
+        <br>
+        {% verbatim %}
+        {{ string|lower }}:
+        {% endverbatim %}
+        {{ string|lower }}
+    </p>
+    <p>
+        upper demo:
+        <br>
+        {% verbatim %}
+        {{ string|upper }}:
+        {% endverbatim %}
+        {{ string|upper }}
+    </p>
+    <p>
+        random demo:
+        <br>
+        {% verbatim %}
+        {{ list|random }}:
+        {% endverbatim %}
+        {{ list|random }}
+    </p>
+    <p>
+        safe demo:
+        <br>
+        {% verbatim %}
+        {{ safe|safe }}:
+        {% endverbatim %}
+        {{ safe|safe }}
+    </p>
+    <p>
+        slice demo:
+        <br>
+        {% verbatim %}
+        {{ list|slice:"2::2" }}:
+        {% endverbatim %}
+        {{ list|slice:"2::2" }}
+    </p>
+    <p>
+        stringtags demo:
+        <br>
+        {% verbatim %}
+        {{ safe|striptags }}:
+        {% endverbatim %}
+        {{ safe|striptags }}
+    </p>
+    <p>
+        truncatechars demo:
+        <br>
+        {% verbatim %}
+        {{ string|truncatechars:5 }}:
+        {% endverbatim %}
+        {{ string|truncatechars:5 }}
+    </p>
+    <p>
+        truncatechars\_html demo:
+        <br>
+        {% verbatim %}
+        {{ safe|truncatechars_html:5 }}:
+        {% endverbatim %}
+        {{ safe|truncatechars_html:5 }}
+    </p>
+    <p>
+        自定义过滤器：
+        {{ string|greet:' world.' }}
+    </p>
+    <p>
+        自定义过滤器实战：
+        {{ mytime|time_since }}
+    </p>
+</body>
+</html>
